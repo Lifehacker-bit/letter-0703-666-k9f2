@@ -507,6 +507,91 @@
       box-shadow: 3px 5px 0 rgba(108,77,56,.1);
     }
 
+    .gift-teaser {
+      position: relative;
+      margin: 58px 0 4px;
+      padding: 27px 22px 24px 112px;
+      overflow: hidden;
+      border: 1px solid rgba(168,63,94,.2);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,.72) 0 2px, transparent 3px),
+        linear-gradient(145deg, #fff3dc, #f8d4db);
+      background-size: 32px 32px, auto;
+      box-shadow: 0 14px 30px rgba(110,54,73,.1);
+    }
+
+    .gift-teaser::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 72px;
+      width: 17px;
+      background: rgba(223,111,132,.52);
+    }
+
+    .gift-box {
+      position: absolute;
+      left: 21px;
+      top: 50%;
+      width: 66px;
+      height: 56px;
+      transform: translateY(-40%) rotate(-4deg);
+      border: 3px solid var(--berry);
+      border-radius: 8px;
+      background: #f6be74;
+      box-shadow: 5px 6px 0 rgba(126,40,72,.09);
+    }
+
+    .gift-box::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      right: -7px;
+      top: -14px;
+      height: 17px;
+      border: 3px solid var(--berry);
+      border-radius: 7px;
+      background: #f9cd8f;
+    }
+
+    .gift-box::after {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: -17px;
+      width: 12px;
+      height: 70px;
+      background: #ec8498;
+    }
+
+    .gift-bow {
+      position: absolute;
+      z-index: 2;
+      left: 17px;
+      top: -32px;
+      width: 28px;
+      height: 22px;
+      border: 4px solid var(--rose-deep);
+      border-radius: 50% 50% 10% 50%;
+      transform: rotate(34deg);
+    }
+
+    .gift-bow::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      width: 28px;
+      height: 22px;
+      border: 4px solid var(--rose-deep);
+      border-radius: 50% 50% 50% 10%;
+      transform: rotate(-66deg);
+    }
+
+    .gift-kicker { color: var(--rose-deep); font-size: 11px; font-weight: 800; letter-spacing: .2em; }
+    .gift-teaser h3 { margin: 4px 0 5px; font-family: "Kaiti SC", "STKaiti", cursive; font-size: 24px; line-height: 1.3; }
+    .gift-teaser p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
     .hug-zone {
       padding: 40px 24px 52px;
       text-align: center;
@@ -543,12 +628,175 @@
       letter-spacing: .24em;
     }
 
-    .floating-heart {
+    .love-popover {
       position: fixed;
-      z-index: 90;
-      pointer-events: none;
-      font-size: 23px;
-      animation: fly 1.7s ease-out forwards;
+      inset: 0;
+      z-index: 120;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      opacity: 0;
+      visibility: hidden;
+      background: rgba(48,23,37,.78);
+      backdrop-filter: blur(12px);
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+
+    .love-popover.open { opacity: 1; visibility: visible; }
+
+    .love-dialog {
+      position: relative;
+      width: min(430px, 94vw);
+      padding: 28px 18px 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.58);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+        linear-gradient(155deg, #fff9ee, #f8d5dd);
+      background-size: 31px 31px, auto;
+      box-shadow: 0 34px 90px rgba(26,10,19,.42);
+      text-align: center;
+      transform: translateY(18px) scale(.96);
+      transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .love-popover.open .love-dialog { transform: none; }
+
+    .close-love {
+      position: absolute;
+      z-index: 8;
+      top: 14px;
+      right: 14px;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(126,40,72,.18);
+      border-radius: 50%;
+      color: var(--berry);
+      background: rgba(255,255,255,.65);
+      cursor: pointer;
+    }
+
+    .love-kicker {
+      color: var(--rose-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .22em;
+    }
+
+    .love-title {
+      margin: 5px 0 0;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 25px;
+      line-height: 1.3;
+    }
+
+    .love-scene {
+      position: relative;
+      height: 310px;
+      margin: 8px -6px 0;
+      overflow: hidden;
+    }
+
+    .avatar {
+      position: absolute;
+      z-index: 4;
+      top: 90px;
+      width: 112px;
+      height: 124px;
+      overflow: hidden;
+      border: 4px solid #fffaf1;
+      border-radius: 48% 48% 46% 46%;
+      background-image: url("生日信-情侣头像.jpg");
+      background-repeat: no-repeat;
+      background-size: 386px 800px;
+      box-shadow: 0 10px 22px rgba(105,42,64,.2), 0 0 0 3px var(--berry);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    .avatar.boy {
+      left: 50%;
+      background-position: -88px -391px;
+      transform: translateX(-260px) scale(.72) rotate(-8deg);
+    }
+
+    .avatar.girl {
+      right: 50%;
+      background-position: -190px -391px;
+      transform: translateX(260px) scale(.72) rotate(8deg);
+    }
+
+    .love-popover.play .avatar.boy { animation: boyMeet 3s cubic-bezier(.18,.8,.28,1) both; }
+    .love-popover.play .avatar.girl { animation: girlMeet 3s cubic-bezier(.18,.8,.28,1) both; }
+
+    .heart-svg {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      top: 30px;
+      width: 240px;
+      height: 240px;
+      overflow: visible;
+      transform: translateX(-50%) scale(.88);
+      opacity: 0;
+      filter: drop-shadow(0 12px 16px rgba(168,63,94,.15));
+    }
+
+    .heart-line {
+      fill: none;
+      stroke: #d96f91;
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 430;
+      stroke-dashoffset: 430;
+    }
+
+    .heart-fill {
+      fill: url(#pinkHeart);
+      opacity: .92;
+    }
+
+    .fill-curtain { transform: translateY(238px); }
+
+    .love-popover.play .heart-svg { animation: heartArrive .2s 2.55s both; }
+    .love-popover.play .heart-line.left { animation: drawHeart 1.65s 2.6s ease-in-out forwards; }
+    .love-popover.play .heart-line.right { animation: drawHeart 1.65s 2.72s ease-in-out forwards; }
+    .love-popover.play .fill-curtain { animation: fillHeart 1.55s 4.32s cubic-bezier(.2,.75,.25,1) forwards; }
+
+    .impact-ring {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 146px;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #f1a3b4;
+      border-radius: 50%;
+      opacity: 0;
+      transform: translate(-50%,-50%);
+    }
+
+    .love-popover.play .impact-ring { animation: impact .65s 1.72s ease-out both; }
+
+    .love-caption {
+      min-height: 28px;
+      margin: -4px 0 13px;
+      color: var(--berry);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 16px;
+    }
+
+    .replay-love {
+      padding: 10px 18px;
+      border: 1px solid rgba(126,40,72,.2);
+      border-radius: 999px;
+      color: var(--berry);
+      background: rgba(255,255,255,.65);
+      cursor: pointer;
     }
 
     .reveal {
@@ -573,10 +821,39 @@
     @keyframes pulse { 50% { opacity: .48; transform: translateY(2px); } }
     @keyframes twinkle { to { transform: scale(1.25) rotate(8deg); opacity: .45; } }
     @keyframes flame { 50% { transform: scale(.9,1.08) translateY(-2px); opacity: .8; } }
-    @keyframes fly {
-      0% { opacity: 0; transform: translate(-50%, 0) scale(.4) rotate(0); }
+    @keyframes boyMeet {
+      0% { opacity: 0; transform: translateX(-260px) scale(.72) rotate(-8deg); }
       15% { opacity: 1; }
-      100% { opacity: 0; transform: translate(var(--drift), -190px) scale(1.2) rotate(var(--spin)); }
+      58% { opacity: 1; transform: translateX(-115px) scale(1) rotate(0); }
+      66% { opacity: 1; transform: translateX(-105px) scale(1.04) rotate(4deg); }
+      76% { opacity: 1; transform: translateX(-112px) scale(.96) rotate(-2deg); }
+      100% { opacity: 0; transform: translateX(-16px) scale(.18) rotate(8deg); }
+    }
+
+    @keyframes girlMeet {
+      0% { opacity: 0; transform: translateX(260px) scale(.72) rotate(8deg); }
+      15% { opacity: 1; }
+      58% { opacity: 1; transform: translateX(115px) scale(1) rotate(0); }
+      66% { opacity: 1; transform: translateX(105px) scale(1.04) rotate(-4deg); }
+      76% { opacity: 1; transform: translateX(112px) scale(.96) rotate(2deg); }
+      100% { opacity: 0; transform: translateX(16px) scale(.18) rotate(-8deg); }
+    }
+
+    @keyframes impact {
+      0% { opacity: .9; transform: translate(-50%,-50%) scale(.2); }
+      100% { opacity: 0; transform: translate(-50%,-50%) scale(7); }
+    }
+
+    @keyframes heartArrive {
+      from { opacity: 0; transform: translateX(-50%) scale(.72); }
+      to { opacity: 1; transform: translateX(-50%) scale(.88); }
+    }
+
+    @keyframes drawHeart { to { stroke-dashoffset: 0; } }
+
+    @keyframes fillHeart {
+      0% { transform: translateY(238px); }
+      100% { transform: translateY(0); }
     }
 
     .flame { transform-origin: center bottom; animation: flame .8s ease-in-out infinite alternate; }
@@ -713,6 +990,13 @@
         </div>
 
         <div class="ps reveal">P.S. 记得刷牙～</div>
+
+        <div class="gift-teaser reveal">
+          <div class="gift-box" aria-hidden="true"><span class="gift-bow"></span></div>
+          <div class="gift-kicker">生日小福利 · 明早 9:00</div>
+          <h3>有一份小礼物正在去找宝宝</h3>
+          <p>收到取件消息记得去拿～里面装着一些可以慢慢吃的小快乐。</p>
+        </div>
       </div>
 
       <footer class="hug-zone">
@@ -722,6 +1006,39 @@
       </footer>
     </article>
   </main>
+
+  <div class="love-popover" id="lovePopover" aria-hidden="true">
+    <div class="love-dialog" role="dialog" aria-modal="true" aria-labelledby="loveTitle">
+      <button class="close-love" id="closeLove" aria-label="关闭">×</button>
+      <div class="love-kicker">A LITTLE LOVE STORY</div>
+      <h2 class="love-title" id="loveTitle">两个小朋友，来抱一下吧</h2>
+
+      <div class="love-scene" aria-label="两个情侣头像靠近并变成粉色爱心的动画">
+        <div class="impact-ring"></div>
+        <div class="avatar boy" aria-label="男生情侣头像"></div>
+        <div class="avatar girl" aria-label="女生情侣头像"></div>
+
+        <svg class="heart-svg" viewBox="0 0 300 250" aria-hidden="true">
+          <defs>
+            <linearGradient id="pinkHeart" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#e984a0"/>
+              <stop offset=".52" stop-color="#f1a6b9"/>
+              <stop offset="1" stop-color="#f8cbd5"/>
+            </linearGradient>
+            <clipPath id="heartFillClip">
+              <rect class="fill-curtain" x="0" y="0" width="300" height="250"/>
+            </clipPath>
+          </defs>
+          <path class="heart-fill" clip-path="url(#heartFillClip)" d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226C251 162 292 112 262 61C237 19 177 18 150 62Z"/>
+          <path class="heart-line left" d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226"/>
+          <path class="heart-line right" d="M150 62C177 18 237 19 262 61C292 112 251 162 150 226"/>
+        </svg>
+      </div>
+
+      <div class="love-caption" id="loveCaption">稍微离得远一点，也会慢慢走向彼此。</div>
+      <button class="replay-love" id="replayLove">再抱一次 ↻</button>
+    </div>
+  </div>
 
   <script>
     const isCapture = new URLSearchParams(location.search).has('capture');
@@ -749,22 +1066,51 @@
     }
 
     const hugButton = document.getElementById('hugButton');
-    hugButton.addEventListener('click', event => {
-      hugButton.textContent = '抱到啦！今天也要开心 ♥';
-      const symbols = ['♥', '♡', '✦', '🍓', '🎂'];
-      for (let i = 0; i < 18; i++) {
-        const heart = document.createElement('span');
-        heart.className = 'floating-heart';
-        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-        heart.style.left = `${event.clientX + (Math.random() - .5) * 90}px`;
-        heart.style.top = `${event.clientY + (Math.random() - .5) * 24}px`;
-        heart.style.color = ['#f6c36c','#ef8ca1','#fff0dc','#c77a91'][i % 4];
-        heart.style.setProperty('--drift', `${(Math.random() - .5) * 170}px`);
-        heart.style.setProperty('--spin', `${(Math.random() - .5) * 100}deg`);
-        heart.style.animationDelay = `${Math.random() * .28}s`;
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 2200);
-      }
+    const lovePopover = document.getElementById('lovePopover');
+    const loveCaption = document.getElementById('loveCaption');
+    const loveTimers = [];
+
+    function clearLoveTimers() {
+      while (loveTimers.length) clearTimeout(loveTimers.pop());
+    }
+
+    function playLoveStory() {
+      clearLoveTimers();
+      lovePopover.classList.remove('play');
+      void lovePopover.offsetWidth;
+      lovePopover.classList.add('play');
+      loveCaption.textContent = '稍微离得远一点，也会慢慢走向彼此。';
+      loveTimers.push(setTimeout(() => { loveCaption.textContent = '碰到啦！'; }, 1750));
+      loveTimers.push(setTimeout(() => { loveCaption.textContent = '两个人，慢慢变成一颗心。'; }, 2650));
+      loveTimers.push(setTimeout(() => { loveCaption.textContent = '正在把喜欢，一点一点涂满……'; }, 4300));
+      loveTimers.push(setTimeout(() => {
+        loveCaption.textContent = '抱到啦，心也合上啦 ♥';
+        hugButton.textContent = '抱到啦！今天也要开心 ♥';
+      }, 5900));
+    }
+
+    function openLoveStory() {
+      lovePopover.classList.add('open');
+      lovePopover.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      playLoveStory();
+    }
+
+    function closeLoveStory() {
+      clearLoveTimers();
+      lovePopover.classList.remove('open', 'play');
+      lovePopover.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    hugButton.addEventListener('click', openLoveStory);
+    document.getElementById('replayLove').addEventListener('click', playLoveStory);
+    document.getElementById('closeLove').addEventListener('click', closeLoveStory);
+    lovePopover.addEventListener('click', event => {
+      if (event.target === lovePopover) closeLoveStory();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && lovePopover.classList.contains('open')) closeLoveStory();
     });
   </script>
 </body>

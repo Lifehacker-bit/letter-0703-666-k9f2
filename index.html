@@ -7,8 +7,17 @@
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="theme-color" content="#3b1f30">
   <meta name="description" content="一封生日限定来信">
+  <link rel="preload" href="birthday-kai.woff" as="font" type="font/woff" crossorigin>
   <title>写给22岁的你｜生日快乐</title>
   <style>
+    @font-face {
+      font-family: "BirthdayKai";
+      src: url("birthday-kai.woff") format("woff");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
     :root {
       --ink: #3b1f30;
       --muted: #7e6470;
@@ -33,7 +42,7 @@
         radial-gradient(circle at 14% 8%, rgba(255, 210, 213, .62), transparent 28rem),
         radial-gradient(circle at 94% 25%, rgba(246, 202, 162, .56), transparent 24rem),
         linear-gradient(155deg, #f8d9dd 0%, #f8e6d3 47%, #efd1d9 100%);
-      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      font-family: "BirthdayKai", "Songti SC", "STSong", serif;
       line-height: 1.95;
       min-height: 100vh;
       overflow-x: hidden;
@@ -79,7 +88,7 @@
     .private-label {
       margin-bottom: 24px;
       color: #f4cf91;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 13px;
       letter-spacing: .24em;
     }
@@ -138,7 +147,7 @@
       padding-top: 26px;
       background: var(--paper);
       color: var(--berry);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 18px;
       letter-spacing: .08em;
       border-radius: 3px;
@@ -249,7 +258,7 @@
 
     h1 {
       margin: 0;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: clamp(48px, 11vw, 78px);
       font-weight: 800;
       line-height: 1.02;
@@ -303,7 +312,7 @@
       color: var(--berry);
       background: #fff7bb;
       box-shadow: 2px 4px 0 rgba(117,64,75,.12);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 14px;
     }
 
@@ -315,7 +324,7 @@
 
     .salutation {
       margin: 18px 0 30px;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 30px;
       font-weight: 800;
       color: var(--berry);
@@ -357,7 +366,7 @@
       gap: 13px;
       margin: 0 0 18px;
       color: var(--rose-deep);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 24px;
       font-weight: 800;
     }
@@ -450,13 +459,26 @@
       filter: saturate(.94) contrast(.98);
     }
 
+    .memory-img {
+      opacity: 0;
+      background: linear-gradient(110deg, #f3e4df 25%, #fff6ec 42%, #f3e4df 60%);
+      background-size: 220% 100%;
+      transition: opacity .4s ease;
+      animation: imagePlaceholder 1.3s linear infinite;
+    }
+
+    .memory-img.loaded {
+      opacity: 1;
+      animation: none;
+    }
+
     .photo-card figcaption {
       position: absolute;
       left: 8px;
       right: 8px;
       bottom: 5px;
       color: var(--berry);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 13px;
       line-height: 1.4;
       text-align: center;
@@ -505,7 +527,7 @@
       color: var(--berry);
       background: #fff2a8;
       box-shadow: 3px 5px 0 rgba(96,50,64,.11);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 14px;
     }
 
@@ -548,7 +570,7 @@
       right: 14px;
       bottom: 6px;
       color: var(--berry);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 14px;
       text-align: center;
     }
@@ -609,7 +631,7 @@
     .film-caption {
       margin: 12px 0 0;
       color: #f8dba5;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 14px;
       text-align: center;
       letter-spacing: .06em;
@@ -651,7 +673,7 @@
       border-left: 5px solid var(--rose);
       border-radius: 0 18px 18px 0;
       background: linear-gradient(90deg, rgba(239,170,181,.2), rgba(255,255,255,.42));
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 21px;
       font-weight: 700;
       line-height: 1.8;
@@ -682,13 +704,13 @@
     .coupon::after { right: -3px; border-radius: 22px 0 0 22px; }
 
     .coupon-label { color: var(--rose-deep); font-size: 11px; font-weight: 800; letter-spacing: .22em; }
-    .coupon h3 { margin: 6px 0 10px; font-family: "Kaiti SC", "STKaiti", cursive; font-size: 27px; }
+    .coupon h3 { margin: 6px 0 10px; font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive; font-size: 27px; }
     .coupon p { margin: 0; color: var(--muted); font-size: 14px; }
 
     .signature {
       margin: 50px 0 8px;
       text-align: right;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 19px;
     }
 
@@ -706,7 +728,7 @@
       transform: rotate(-2deg);
       color: #6c4d38;
       background: #fff2a8;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 16px;
       box-shadow: 3px 5px 0 rgba(108,77,56,.1);
     }
@@ -793,7 +815,7 @@
     }
 
     .gift-kicker { color: var(--rose-deep); font-size: 11px; font-weight: 800; letter-spacing: .2em; }
-    .gift-teaser h3 { margin: 4px 0 5px; font-family: "Kaiti SC", "STKaiti", cursive; font-size: 24px; line-height: 1.3; }
+    .gift-teaser h3 { margin: 4px 0 5px; font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive; font-size: 24px; line-height: 1.3; }
     .gift-teaser p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
 
     .snack-gift {
@@ -837,7 +859,7 @@
     .snack-gift h3 {
       margin: 0;
       color: var(--berry);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: clamp(25px, 7vw, 31px);
       line-height: 1.25;
     }
@@ -888,7 +910,7 @@
       transform: translateX(-50%) rotate(-2deg);
       color: var(--berry);
       background: #fff7df;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 14px;
       white-space: nowrap;
       box-shadow: 2px 3px 0 rgba(80,34,50,.09);
@@ -970,7 +992,7 @@
       color: #fff9f2;
       background: var(--rose-deep);
       box-shadow: 0 8px 18px rgba(126,40,72,.2);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 16px;
       font-weight: 800;
       cursor: pointer;
@@ -1024,7 +1046,7 @@
       display: block;
       margin-bottom: 7px;
       color: var(--berry);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 17px;
     }
 
@@ -1043,7 +1065,7 @@
       border-radius: 14px;
       color: var(--berry);
       background: rgba(255,247,218,.74);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 15px;
       line-height: 1.75;
     }
@@ -1081,7 +1103,7 @@
       color: #5a243d;
       background: #f5c578;
       box-shadow: 0 9px 20px rgba(0,0,0,.2);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 17px;
       font-weight: 800;
       cursor: pointer;
@@ -1160,7 +1182,7 @@
 
     .love-title {
       margin: 5px 0 0;
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 25px;
       line-height: 1.3;
     }
@@ -1182,9 +1204,9 @@
       overflow: hidden;
       border: 4px solid #fffaf1;
       border-radius: 50%;
-      background-image: url("生日信-情侣头像.jpg");
       background-repeat: no-repeat;
-      background-size: calc(var(--avatar) * 2.5) auto;
+      background-size: cover;
+      background-position: center;
       box-shadow: 0 10px 22px rgba(105,42,64,.2), 0 0 0 3px var(--berry);
       opacity: 0;
       will-change: transform, opacity;
@@ -1192,13 +1214,13 @@
 
     .avatar.boy {
       left: 50%;
-      background-position: calc(var(--avatar) * -.43) calc(var(--avatar) * -2.5);
+      background-image: url("avatar-boy.webp");
       transform: translateX(-260px) scale(.72) rotate(-8deg);
     }
 
     .avatar.girl {
       right: 50%;
-      background-position: calc(var(--avatar) * -1.08) calc(var(--avatar) * -2.5);
+      background-image: url("avatar-girl.webp");
       transform: translateX(260px) scale(.72) rotate(8deg);
     }
 
@@ -1275,7 +1297,7 @@
       min-height: 28px;
       margin: -4px 0 13px;
       color: var(--berry);
-      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-family: "BirthdayKai", "Kaiti SC", "STKaiti", cursive;
       font-size: 16px;
     }
 
@@ -1345,7 +1367,11 @@
     @keyframes drawHeart { to { stroke-dashoffset: 0; } }
 
     @keyframes scribbleLine { to { stroke-dashoffset: 0; } }
-    @keyframes washIn { to { opacity: .28; } }
+    @keyframes washIn { to { opacity: 1; } }
+
+    @keyframes imagePlaceholder {
+      to { background-position-x: -220%; }
+    }
 
     @keyframes penScribble {
       0% { opacity: 0; transform: translate(8px,224px) rotate(-47deg) scale(.82); }
@@ -1452,15 +1478,15 @@
 
         <div class="memory-collage reveal" aria-label="我们的日常照片">
           <figure class="photo-card main-shot">
-            <img src="memory-her-game.jpg" alt="宝宝抱着玩偶看手机的日常照片" decoding="async">
+            <img class="memory-img" src="memory-her-game.webp" alt="宝宝抱着玩偶看手机的日常照片" loading="lazy" decoding="async">
             <figcaption>认真玩手机的小宝宝</figcaption>
           </figure>
           <figure class="photo-card side-shot">
-            <img src="memory-him-kiss.jpg" alt="隔空亲亲的搞怪自拍" decoding="async">
+            <img class="memory-img" src="memory-him-kiss.webp" alt="隔空亲亲的搞怪自拍" loading="lazy" decoding="async">
             <figcaption>隔空亲亲</figcaption>
           </figure>
           <figure class="photo-card corner-shot">
-            <img src="memory-him-tongue.jpg" alt="吐舌头的搞怪自拍" decoding="async">
+            <img class="memory-img" src="memory-him-tongue.webp" alt="吐舌头的搞怪自拍" loading="lazy" decoding="async">
             <figcaption>负责逗你笑</figcaption>
           </figure>
           <div class="collage-note">你负责可爱，我负责搞怪 ♥</div>
@@ -1480,7 +1506,7 @@
         </section>
 
         <figure class="wide-memory reveal">
-          <img src="memory-her-sea.jpg" alt="宝宝站在海边的照片" decoding="async">
+          <img class="memory-img" src="memory-her-sea.webp" alt="宝宝站在海边的照片" loading="lazy" decoding="async">
           <figcaption>那天的海风，也被我偷偷保存了下来。</figcaption>
         </figure>
 
@@ -1492,9 +1518,9 @@
 
         <div class="film-memory reveal" aria-label="被保存下来的生活切片">
           <div class="film-strip">
-            <div class="film-frame profile"><img src="memory-her-profile.jpg" alt="宝宝的侧脸照片" decoding="async"></div>
-            <div class="film-frame lulu"><img src="memory-her-lulu.jpg" alt="宝宝在玩具公社拍照" decoding="async"></div>
-            <div class="film-frame running"><img src="memory-her-running.jpg" alt="宝宝向镜头跑来的照片" decoding="async"></div>
+            <div class="film-frame profile"><img class="memory-img" src="memory-her-profile.webp" alt="宝宝的侧脸照片" loading="lazy" decoding="async"></div>
+            <div class="film-frame lulu"><img class="memory-img" src="memory-her-lulu.webp" alt="宝宝在玩具公社拍照" loading="lazy" decoding="async"></div>
+            <div class="film-frame running"><img class="memory-img" src="memory-her-running.webp" alt="宝宝向镜头跑来的照片" loading="lazy" decoding="async"></div>
           </div>
           <p class="film-caption">一些不一定完美，却被我认真保存下来的你。</p>
         </div>
@@ -1640,6 +1666,13 @@
   <script>
     const isCapture = new URLSearchParams(location.search).has('capture');
     if (isCapture) document.body.classList.add('capture');
+
+    document.querySelectorAll('.memory-img').forEach(img => {
+      if (isCapture) img.loading = 'eager';
+      const showImage = () => img.classList.add('loaded');
+      if (img.complete && img.naturalWidth) showImage();
+      else img.addEventListener('load', showImage, { once: true });
+    });
 
     const screen = document.getElementById('envelopeScreen');
     document.getElementById('openLetter').addEventListener('click', () => {

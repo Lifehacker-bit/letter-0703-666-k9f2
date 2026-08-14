@@ -592,6 +592,271 @@
     .gift-teaser h3 { margin: 4px 0 5px; font-family: "Kaiti SC", "STKaiti", cursive; font-size: 24px; line-height: 1.3; }
     .gift-teaser p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
 
+    .snack-gift {
+      position: relative;
+      margin: 58px -8px 4px;
+      padding: 32px 20px 22px;
+      overflow: hidden;
+      border: 1px solid rgba(168,63,94,.2);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 12% 11%, rgba(255,255,255,.72) 0 2px, transparent 3px),
+        linear-gradient(155deg, #fff5dd 0%, #f9d6dc 64%, #f2c1cc 100%);
+      background-size: 35px 35px, auto;
+      box-shadow: 0 18px 42px rgba(102,45,66,.13);
+      text-align: center;
+    }
+
+    .snack-gift::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -72px;
+      top: -68px;
+      border: 24px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+    }
+
+    .snack-ribbon {
+      display: inline-block;
+      margin-bottom: 9px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      color: #fff8ef;
+      background: var(--berry);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .2em;
+    }
+
+    .snack-gift h3 {
+      margin: 0;
+      color: var(--berry);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: clamp(25px, 7vw, 31px);
+      line-height: 1.25;
+    }
+
+    .snack-subtitle {
+      margin: 7px 0 17px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .parcel-stage {
+      position: relative;
+      width: 190px;
+      height: 138px;
+      margin: 4px auto 10px;
+      perspective: 600px;
+    }
+
+    .parcel-shadow {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 0;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(100,43,62,.13);
+      filter: blur(4px);
+    }
+
+    .parcel-base {
+      position: absolute;
+      left: 21px;
+      bottom: 11px;
+      width: 148px;
+      height: 85px;
+      border: 3px solid var(--berry);
+      border-radius: 8px 8px 15px 15px;
+      background: linear-gradient(135deg, #f2b762, #ed9a68);
+      box-shadow: inset 0 -12px 0 rgba(139,57,72,.08);
+    }
+
+    .parcel-base::before {
+      content: "给宝宝";
+      position: absolute;
+      left: 50%;
+      top: 31px;
+      padding: 3px 12px;
+      transform: translateX(-50%) rotate(-2deg);
+      color: var(--berry);
+      background: #fff7df;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 14px;
+      white-space: nowrap;
+      box-shadow: 2px 3px 0 rgba(80,34,50,.09);
+    }
+
+    .parcel-tape {
+      position: absolute;
+      z-index: 3;
+      left: 86px;
+      bottom: 12px;
+      width: 18px;
+      height: 82px;
+      background: rgba(255,224,158,.62);
+    }
+
+    .parcel-lid {
+      position: absolute;
+      z-index: 4;
+      left: 12px;
+      top: 27px;
+      width: 166px;
+      height: 34px;
+      border: 3px solid var(--berry);
+      border-radius: 8px;
+      background: #f8c77a;
+      transform-origin: 50% 100%;
+      transition: transform .8s cubic-bezier(.2,.8,.2,1), top .8s ease;
+    }
+
+    .parcel-lid::after {
+      content: "♥";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      color: var(--rose-deep);
+      font-size: 18px;
+    }
+
+    .snack-gift.opened .parcel-lid {
+      top: 0;
+      transform: rotateX(-52deg) rotate(-4deg);
+    }
+
+    .snack-peeks {
+      position: absolute;
+      z-index: 2;
+      left: 36px;
+      top: 44px;
+      display: flex;
+      gap: 5px;
+      align-items: flex-end;
+      opacity: 0;
+      transform: translateY(26px) scale(.84);
+      transition: opacity .45s .4s ease, transform .8s .3s cubic-bezier(.15,.9,.25,1.25);
+    }
+
+    .snack-gift.opened .snack-peeks { opacity: 1; transform: translateY(-24px) scale(1); }
+
+    .peek {
+      display: grid;
+      place-items: center;
+      width: 37px;
+      height: 55px;
+      border: 2px solid rgba(104,42,62,.72);
+      border-radius: 8px 8px 6px 6px;
+      font-size: 21px;
+      box-shadow: 3px 5px 0 rgba(103,43,61,.08);
+    }
+
+    .peek:nth-child(1) { background: #f7b9c5; transform: rotate(-8deg); }
+    .peek:nth-child(2) { height: 64px; background: #f6d17c; transform: rotate(3deg); }
+    .peek:nth-child(3) { background: #bcd7bc; transform: rotate(-2deg); }
+
+    .open-snacks {
+      padding: 11px 19px;
+      border: 1px solid rgba(126,40,72,.2);
+      border-radius: 999px;
+      color: #fff9f2;
+      background: var(--rose-deep);
+      box-shadow: 0 8px 18px rgba(126,40,72,.2);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .snack-drawer {
+      max-height: 0;
+      margin-top: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: max-height 1s ease, opacity .55s .25s ease, transform .65s .2s ease, margin .65s ease;
+    }
+
+    .snack-gift.opened .snack-drawer {
+      max-height: 900px;
+      margin-top: 22px;
+      opacity: 1;
+      transform: none;
+    }
+
+    .snack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 9px;
+      text-align: left;
+    }
+
+    .snack-pocket {
+      position: relative;
+      min-height: 135px;
+      padding: 15px 13px 13px;
+      overflow: hidden;
+      border: 1px solid rgba(126,40,72,.13);
+      border-radius: 17px;
+      background: rgba(255,255,255,.62);
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,.24);
+    }
+
+    .snack-pocket::after {
+      content: attr(data-icon);
+      position: absolute;
+      right: -2px;
+      bottom: -11px;
+      font-size: 54px;
+      opacity: .16;
+      transform: rotate(-9deg);
+    }
+
+    .snack-pocket b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--berry);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 17px;
+    }
+
+    .snack-pocket p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: #795d67;
+      font-size: 11px;
+      line-height: 1.75;
+    }
+
+    .snack-note {
+      margin: 15px 0 0;
+      padding: 12px 13px;
+      border-radius: 14px;
+      color: var(--berry);
+      background: rgba(255,247,218,.74);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .delivery-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 13px;
+      padding: 6px 11px;
+      border: 1px dashed rgba(126,40,72,.32);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.48);
+      font-size: 11px;
+    }
+
     .hug-zone {
       padding: 40px 24px 52px;
       text-align: center;
@@ -634,7 +899,7 @@
       z-index: 120;
       display: grid;
       place-items: center;
-      padding: 22px;
+      padding: 12px;
       opacity: 0;
       visibility: hidden;
       background: rgba(48,23,37,.78);
@@ -646,9 +911,12 @@
 
     .love-dialog {
       position: relative;
-      width: min(430px, 94vw);
+      width: min(430px, 100%);
+      max-height: calc(100dvh - 24px);
       padding: 28px 18px 24px;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       border: 1px solid rgba(255,255,255,.58);
       border-radius: 30px;
       background:
@@ -694,6 +962,7 @@
     }
 
     .love-scene {
+      --avatar: clamp(116px, 34vw, 136px);
       position: relative;
       height: 310px;
       margin: 8px -6px 0;
@@ -704,14 +973,14 @@
       position: absolute;
       z-index: 4;
       top: 90px;
-      width: 112px;
-      height: 124px;
+      width: var(--avatar);
+      height: var(--avatar);
       overflow: hidden;
       border: 4px solid #fffaf1;
-      border-radius: 48% 48% 46% 46%;
+      border-radius: 50%;
       background-image: url("生日信-情侣头像.jpg");
       background-repeat: no-repeat;
-      background-size: 386px 800px;
+      background-size: calc(var(--avatar) * 2.5) auto;
       box-shadow: 0 10px 22px rgba(105,42,64,.2), 0 0 0 3px var(--berry);
       opacity: 0;
       will-change: transform, opacity;
@@ -719,13 +988,13 @@
 
     .avatar.boy {
       left: 50%;
-      background-position: -88px -391px;
+      background-position: calc(var(--avatar) * -.43) calc(var(--avatar) * -2.5);
       transform: translateX(-260px) scale(.72) rotate(-8deg);
     }
 
     .avatar.girl {
       right: 50%;
-      background-position: -190px -391px;
+      background-position: calc(var(--avatar) * -1.08) calc(var(--avatar) * -2.5);
       transform: translateX(260px) scale(.72) rotate(8deg);
     }
 
@@ -812,6 +1081,10 @@
     body.capture .paper { border-radius: 0; box-shadow: none; }
     body.capture .reveal { opacity: 1; transform: none; }
     body.capture .hug-button { pointer-events: none; }
+    body.capture .snack-drawer { max-height: 900px; margin-top: 22px; opacity: 1; transform: none; }
+    body.capture .snack-peeks { opacity: 1; transform: translateY(-24px) scale(1); }
+    body.capture .parcel-lid { top: 0; transform: rotateX(-52deg) rotate(-4deg); }
+    body.capture .open-snacks { display: none; }
 
     @keyframes arrive {
       from { opacity: 0; transform: translateY(26px) rotate(-2deg) scale(.96); }
@@ -824,19 +1097,19 @@
     @keyframes boyMeet {
       0% { opacity: 0; transform: translateX(-260px) scale(.72) rotate(-8deg); }
       15% { opacity: 1; }
-      58% { opacity: 1; transform: translateX(-115px) scale(1) rotate(0); }
-      66% { opacity: 1; transform: translateX(-105px) scale(1.04) rotate(4deg); }
-      76% { opacity: 1; transform: translateX(-112px) scale(.96) rotate(-2deg); }
-      100% { opacity: 0; transform: translateX(-16px) scale(.18) rotate(8deg); }
+      58% { opacity: 1; transform: translateX(calc(var(--avatar) * -1.02)) scale(1) rotate(0); }
+      66% { opacity: 1; transform: translateX(calc(var(--avatar) * -.94)) scale(1.04) rotate(4deg); }
+      76% { opacity: 1; transform: translateX(calc(var(--avatar) * -1)) scale(.96) rotate(-2deg); }
+      100% { opacity: 0; transform: translateX(calc(var(--avatar) * -.15)) scale(.18) rotate(8deg); }
     }
 
     @keyframes girlMeet {
       0% { opacity: 0; transform: translateX(260px) scale(.72) rotate(8deg); }
       15% { opacity: 1; }
-      58% { opacity: 1; transform: translateX(115px) scale(1) rotate(0); }
-      66% { opacity: 1; transform: translateX(105px) scale(1.04) rotate(-4deg); }
-      76% { opacity: 1; transform: translateX(112px) scale(.96) rotate(2deg); }
-      100% { opacity: 0; transform: translateX(16px) scale(.18) rotate(-8deg); }
+      58% { opacity: 1; transform: translateX(calc(var(--avatar) * 1.02)) scale(1) rotate(0); }
+      66% { opacity: 1; transform: translateX(calc(var(--avatar) * .94)) scale(1.04) rotate(-4deg); }
+      76% { opacity: 1; transform: translateX(var(--avatar)) scale(.96) rotate(2deg); }
+      100% { opacity: 0; transform: translateX(calc(var(--avatar) * .85)) scale(.18) rotate(-8deg); }
     }
 
     @keyframes impact {
@@ -991,11 +1264,46 @@
 
         <div class="ps reveal">P.S. 记得刷牙～</div>
 
-        <div class="gift-teaser reveal">
-          <div class="gift-box" aria-hidden="true"><span class="gift-bow"></span></div>
-          <div class="gift-kicker">生日小福利 · 明早 9:00</div>
-          <h3>有一份小礼物正在去找宝宝</h3>
-          <p>收到取件消息记得去拿～里面装着一些可以慢慢吃的小快乐。</p>
+        <div class="snack-gift reveal" id="snackGift">
+          <div class="snack-ribbon">生日小福利 · LITTLE GIFT</div>
+          <h3>一箱小快乐，正在向宝宝跑来</h3>
+          <p class="snack-subtitle">没有标准答案，只有甜的、酸的、香的，还有一点点辣。</p>
+
+          <div class="parcel-stage" aria-hidden="true">
+            <div class="parcel-shadow"></div>
+            <div class="snack-peeks">
+              <span class="peek">🍓</span><span class="peek">🍫</span><span class="peek">🥨</span>
+            </div>
+            <div class="parcel-base"></div>
+            <div class="parcel-tape"></div>
+            <div class="parcel-lid"></div>
+          </div>
+
+          <button class="open-snacks" id="openSnacks">拆开看看里面有什么 ↘</button>
+
+          <div class="snack-drawer">
+            <div class="snack-grid">
+              <div class="snack-pocket" data-icon="🍓">
+                <b>甜甜补给</b>
+                <p>冻干草莓、芒果干、麦丽素、QQ糖、香蕉脆片</p>
+              </div>
+              <div class="snack-pocket" data-icon="🍑">
+                <b>酸酸果味</b>
+                <p>青梅、西梅、山楂卷、什锦果冻、各种果干</p>
+              </div>
+              <div class="snack-pocket" data-icon="🥓">
+                <b>咸香解馋</b>
+                <p>鱼豆腐、猪肉脯、牛肉粒、烤香肠、卤鸡蛋</p>
+              </div>
+              <div class="snack-pocket" data-icon="🌶️">
+                <b>辣味挑战</b>
+                <p>麻辣丸子、魔芋爽、辣条、豆干、深海小鱼</p>
+              </div>
+            </div>
+
+            <div class="snack-note">不是每一样都很贵，但每一样都想让你拆开的时候，开心一下。</div>
+            <div class="delivery-chip">🚚 明早9点左右 · 收到取件消息记得去拿</div>
+          </div>
         </div>
       </div>
 
@@ -1111,6 +1419,14 @@
     });
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && lovePopover.classList.contains('open')) closeLoveStory();
+    });
+
+    const snackGift = document.getElementById('snackGift');
+    const openSnacks = document.getElementById('openSnacks');
+    openSnacks.addEventListener('click', () => {
+      const isOpen = snackGift.classList.toggle('opened');
+      openSnacks.textContent = isOpen ? '已经装进宝宝的快乐箱啦 ✓' : '拆开看看里面有什么 ↘';
+      openSnacks.setAttribute('aria-expanded', String(isOpen));
     });
   </script>
 </body>

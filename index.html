@@ -411,6 +411,210 @@
 
     .stat span { color: var(--muted); font-size: 11px; letter-spacing: .08em; }
 
+    .memory-collage {
+      position: relative;
+      height: clamp(350px, 92vw, 470px);
+      margin: 42px -14px 56px;
+    }
+
+    .photo-card {
+      position: absolute;
+      margin: 0;
+      padding: 8px 8px 34px;
+      overflow: visible;
+      border: 1px solid rgba(100,56,70,.12);
+      border-radius: 4px;
+      background: #fffdf7;
+      box-shadow: 0 17px 35px rgba(75,38,52,.18), 0 2px 0 rgba(255,255,255,.8) inset;
+    }
+
+    .photo-card::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: -12px;
+      width: 64px;
+      height: 25px;
+      transform: translateX(-50%) rotate(-2deg);
+      background: rgba(249,221,151,.7);
+      box-shadow: 0 1px 0 rgba(101,57,69,.08);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 2px;
+      object-fit: cover;
+      filter: saturate(.94) contrast(.98);
+    }
+
+    .photo-card figcaption {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 5px;
+      color: var(--berry);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .photo-card.main-shot {
+      z-index: 2;
+      left: 2%;
+      top: 22px;
+      width: 68%;
+      height: 82%;
+      transform: rotate(-3deg);
+    }
+
+    .photo-card.main-shot img { object-position: 50% 50%; }
+
+    .photo-card.side-shot {
+      z-index: 3;
+      right: 0;
+      top: 1px;
+      width: 42%;
+      height: 48%;
+      transform: rotate(5deg);
+    }
+
+    .photo-card.side-shot img { object-position: 50% 32%; }
+
+    .photo-card.corner-shot {
+      z-index: 4;
+      right: 3%;
+      bottom: 0;
+      width: 43%;
+      height: 47%;
+      transform: rotate(-5deg);
+    }
+
+    .photo-card.corner-shot img { object-position: 50% 35%; }
+
+    .collage-note {
+      position: absolute;
+      z-index: 6;
+      left: 2%;
+      bottom: -16px;
+      padding: 7px 13px;
+      transform: rotate(2deg);
+      color: var(--berry);
+      background: #fff2a8;
+      box-shadow: 3px 5px 0 rgba(96,50,64,.11);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 14px;
+    }
+
+    .wide-memory {
+      position: relative;
+      margin: 48px -18px 58px;
+      padding: 9px 9px 42px;
+      border-radius: 7px;
+      background: #fffdf6;
+      box-shadow: 0 18px 38px rgba(71,36,49,.16);
+      transform: rotate(.6deg);
+    }
+
+    .wide-memory::before,
+    .wide-memory::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: -11px;
+      width: 57px;
+      height: 23px;
+      background: rgba(245,197,191,.72);
+    }
+
+    .wide-memory::before { left: 20px; transform: rotate(-7deg); }
+    .wide-memory::after { right: 22px; transform: rotate(8deg); }
+
+    .wide-memory img {
+      display: block;
+      width: 100%;
+      height: clamp(210px, 58vw, 350px);
+      border-radius: 3px;
+      object-fit: cover;
+      object-position: 50% 42%;
+    }
+
+    .wide-memory figcaption {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 6px;
+      color: var(--berry);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .film-memory {
+      position: relative;
+      margin: 44px -12px 56px;
+      padding: 22px 13px 18px;
+      border-radius: 15px;
+      color: #fff7ef;
+      background: #4a2638;
+      box-shadow: 0 17px 36px rgba(62,29,43,.2);
+    }
+
+    .film-memory::before,
+    .film-memory::after {
+      content: "••••••••••••••••••";
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      overflow: hidden;
+      color: #f5d7a0;
+      font-family: monospace;
+      font-size: 12px;
+      letter-spacing: .42em;
+      line-height: 1;
+      white-space: nowrap;
+      opacity: .7;
+    }
+
+    .film-memory::before { top: 4px; }
+    .film-memory::after { bottom: 4px; }
+
+    .film-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 7px;
+    }
+
+    .film-frame {
+      position: relative;
+      overflow: hidden;
+      border: 3px solid #fff8e9;
+      background: #fff8e9;
+      aspect-ratio: .76;
+    }
+
+    .film-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .film-frame.profile img { object-position: 50% 42%; }
+    .film-frame.lulu img { object-position: 74% 54%; }
+    .film-frame.running img { object-position: 58% 55%; }
+
+    .film-caption {
+      margin: 12px 0 0;
+      color: #f8dba5;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: .06em;
+    }
+
     .memory-card {
       position: relative;
       margin: 32px -8px;
@@ -1024,17 +1228,33 @@
       stroke-dashoffset: 430;
     }
 
-    .heart-fill {
-      fill: url(#pinkHeart);
+    .scribble-wash {
+      fill: #f4a9bc;
+      opacity: 0;
+    }
+
+    .scribble-line {
+      fill: none;
+      stroke: #ec8faa;
+      stroke-width: 12;
+      stroke-linecap: round;
+      stroke-dasharray: 310;
+      stroke-dashoffset: 310;
       opacity: .92;
     }
 
-    .fill-curtain { transform: translateY(238px); }
+    .heart-pen {
+      opacity: 0;
+      transform-origin: 0 0;
+      filter: drop-shadow(2px 3px 2px rgba(106,43,64,.2));
+    }
 
     .love-popover.play .heart-svg { animation: heartArrive .2s 2.55s both; }
     .love-popover.play .heart-line.left { animation: drawHeart 1.65s 2.6s ease-in-out forwards; }
     .love-popover.play .heart-line.right { animation: drawHeart 1.65s 2.72s ease-in-out forwards; }
-    .love-popover.play .fill-curtain { animation: fillHeart 1.55s 4.32s cubic-bezier(.2,.75,.25,1) forwards; }
+    .love-popover.play .scribble-line { animation: scribbleLine .32s var(--delay) ease-out forwards; }
+    .love-popover.play .scribble-wash { animation: washIn .5s 6.05s ease forwards; }
+    .love-popover.play .heart-pen { animation: penScribble 1.95s 4.15s linear both; }
 
     .impact-ring {
       position: absolute;
@@ -1124,9 +1344,26 @@
 
     @keyframes drawHeart { to { stroke-dashoffset: 0; } }
 
-    @keyframes fillHeart {
-      0% { transform: translateY(238px); }
-      100% { transform: translateY(0); }
+    @keyframes scribbleLine { to { stroke-dashoffset: 0; } }
+    @keyframes washIn { to { opacity: .14; } }
+
+    @keyframes penScribble {
+      0% { opacity: 0; transform: translate(8px,224px) rotate(-47deg) scale(.82); }
+      4% { opacity: 1; }
+      9% { opacity: 1; transform: translate(118px,57px) rotate(-47deg) scale(.82); }
+      14% { transform: translate(28px,224px) rotate(-47deg) scale(.82); }
+      22% { transform: translate(145px,48px) rotate(-47deg) scale(.82); }
+      28% { transform: translate(53px,226px) rotate(-47deg) scale(.82); }
+      36% { transform: translate(169px,47px) rotate(-47deg) scale(.82); }
+      42% { transform: translate(78px,227px) rotate(-47deg) scale(.82); }
+      50% { transform: translate(194px,47px) rotate(-47deg) scale(.82); }
+      56% { transform: translate(103px,227px) rotate(-47deg) scale(.82); }
+      64% { transform: translate(219px,48px) rotate(-47deg) scale(.82); }
+      70% { transform: translate(128px,227px) rotate(-47deg) scale(.82); }
+      78% { transform: translate(244px,51px) rotate(-47deg) scale(.82); }
+      84% { transform: translate(153px,224px) rotate(-47deg) scale(.82); }
+      93% { opacity: 1; transform: translate(269px,58px) rotate(-47deg) scale(.82); }
+      100% { opacity: 0; transform: translate(282px,41px) rotate(-47deg) scale(.82); }
     }
 
     .flame { transform-origin: center bottom; animation: flame .8s ease-in-out infinite alternate; }
@@ -1213,6 +1450,22 @@
           <div class="stat"><b>∞</b><span>未完待续</span></div>
         </div>
 
+        <div class="memory-collage reveal" aria-label="我们的日常照片">
+          <figure class="photo-card main-shot">
+            <img src="memory-her-game.jpg" alt="宝宝抱着玩偶看手机的日常照片" decoding="async">
+            <figcaption>认真玩手机的小宝宝</figcaption>
+          </figure>
+          <figure class="photo-card side-shot">
+            <img src="memory-him-kiss.jpg" alt="隔空亲亲的搞怪自拍" decoding="async">
+            <figcaption>隔空亲亲</figcaption>
+          </figure>
+          <figure class="photo-card corner-shot">
+            <img src="memory-him-tongue.jpg" alt="吐舌头的搞怪自拍" decoding="async">
+            <figcaption>负责逗你笑</figcaption>
+          </figure>
+          <div class="collage-note">你负责可爱，我负责搞怪 ♥</div>
+        </div>
+
         <section class="section reveal">
           <h2 class="section-tag"><span class="number">01</span>今年，隔空陪你过生日</h2>
           <p>可惜今年生日刚好在暑假，我们不能线下见面咯。明天宝宝就在家里好好玩，和姐姐们、爸爸妈妈一起开开心心地过生日。</p>
@@ -1226,10 +1479,24 @@
           <p>我相信新的一岁，宝宝会越来越勇敢，我们两个人也会一起进入人生的下一个阶段。</p>
         </section>
 
+        <figure class="wide-memory reveal">
+          <img src="memory-her-sea.jpg" alt="宝宝站在海边的照片" decoding="async">
+          <figcaption>那天的海风，也被我偷偷保存了下来。</figcaption>
+        </figure>
+
         <div class="memory-card reveal">
           <div class="tiny">今天还有一件特别巧的事</div>
           <h2>DAY 666</h2>
           <p>明天还是我们在一起的第666天。<br><strong>666，兄弟！哈哈哈哈。</strong></p>
+        </div>
+
+        <div class="film-memory reveal" aria-label="被保存下来的生活切片">
+          <div class="film-strip">
+            <div class="film-frame profile"><img src="memory-her-profile.jpg" alt="宝宝的侧脸照片" decoding="async"></div>
+            <div class="film-frame lulu"><img src="memory-her-lulu.jpg" alt="宝宝在玩具公社拍照" decoding="async"></div>
+            <div class="film-frame running"><img src="memory-her-running.jpg" alt="宝宝向镜头跑来的照片" decoding="async"></div>
+          </div>
+          <p class="film-caption">一些不一定完美，却被我认真保存下来的你。</p>
         </div>
 
         <section class="section reveal">
@@ -1328,18 +1595,40 @@
 
         <svg class="heart-svg" viewBox="0 0 300 250" aria-hidden="true">
           <defs>
-            <linearGradient id="pinkHeart" x1="0" y1="1" x2="0" y2="0">
-              <stop offset="0" stop-color="#e984a0"/>
-              <stop offset=".52" stop-color="#f1a6b9"/>
-              <stop offset="1" stop-color="#f8cbd5"/>
-            </linearGradient>
-            <clipPath id="heartFillClip">
-              <rect class="fill-curtain" x="0" y="0" width="300" height="250"/>
+            <clipPath id="heartShapeClip">
+              <path d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226C251 162 292 112 262 61C237 19 177 18 150 62Z"/>
             </clipPath>
           </defs>
-          <path class="heart-fill" clip-path="url(#heartFillClip)" d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226C251 162 292 112 262 61C237 19 177 18 150 62Z"/>
+          <path class="scribble-wash" d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226C251 162 292 112 262 61C237 19 177 18 150 62Z"/>
+          <g class="scribble-fill" clip-path="url(#heartShapeClip)">
+            <line class="scribble-line" style="--delay:4.20s" x1="-100" y1="245" x2="110" y2="35"/>
+            <line class="scribble-line" style="--delay:4.29s" x1="-82" y1="245" x2="128" y2="35"/>
+            <line class="scribble-line" style="--delay:4.38s" x1="-64" y1="245" x2="146" y2="35"/>
+            <line class="scribble-line" style="--delay:4.47s" x1="-46" y1="245" x2="164" y2="35"/>
+            <line class="scribble-line" style="--delay:4.56s" x1="-28" y1="245" x2="182" y2="35"/>
+            <line class="scribble-line" style="--delay:4.65s" x1="-10" y1="245" x2="200" y2="35"/>
+            <line class="scribble-line" style="--delay:4.74s" x1="8" y1="245" x2="218" y2="35"/>
+            <line class="scribble-line" style="--delay:4.83s" x1="26" y1="245" x2="236" y2="35"/>
+            <line class="scribble-line" style="--delay:4.92s" x1="44" y1="245" x2="254" y2="35"/>
+            <line class="scribble-line" style="--delay:5.01s" x1="62" y1="245" x2="272" y2="35"/>
+            <line class="scribble-line" style="--delay:5.10s" x1="80" y1="245" x2="290" y2="35"/>
+            <line class="scribble-line" style="--delay:5.19s" x1="98" y1="245" x2="308" y2="35"/>
+            <line class="scribble-line" style="--delay:5.28s" x1="116" y1="245" x2="326" y2="35"/>
+            <line class="scribble-line" style="--delay:5.37s" x1="134" y1="245" x2="344" y2="35"/>
+            <line class="scribble-line" style="--delay:5.46s" x1="152" y1="245" x2="362" y2="35"/>
+            <line class="scribble-line" style="--delay:5.55s" x1="170" y1="245" x2="380" y2="35"/>
+            <line class="scribble-line" style="--delay:5.64s" x1="188" y1="245" x2="398" y2="35"/>
+            <line class="scribble-line" style="--delay:5.73s" x1="206" y1="245" x2="416" y2="35"/>
+            <line class="scribble-line" style="--delay:5.82s" x1="224" y1="245" x2="434" y2="35"/>
+          </g>
           <path class="heart-line left" d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226"/>
           <path class="heart-line right" d="M150 62C177 18 237 19 262 61C292 112 251 162 150 226"/>
+          <g class="heart-pen">
+            <path d="M0-5H34L43 0L34 5H0Z" fill="#f5a5ba" stroke="#8f3657" stroke-width="2"/>
+            <path d="M34-5L45 0L34 5Z" fill="#f7d19a" stroke="#8f3657" stroke-width="2"/>
+            <path d="M42-2L46 0L42 2Z" fill="#5e3342"/>
+            <path d="M7-5V5" stroke="#fff0df" stroke-width="4"/>
+          </g>
         </svg>
       </div>
 
@@ -1394,7 +1683,7 @@
       loveTimers.push(setTimeout(() => {
         loveCaption.textContent = '抱到啦，心也合上啦 ♥';
         hugButton.textContent = '抱到啦！今天也要开心 ♥';
-      }, 5900));
+      }, 6350));
     }
 
     function openLoveStory() {

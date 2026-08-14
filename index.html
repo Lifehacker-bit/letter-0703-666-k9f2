@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="theme-color" content="#3b1f30">
+  <meta name="description" content="一封生日限定来信">
+  <title>写给22岁的你｜生日快乐</title>
+  <style>
+    :root {
+      --ink: #3b1f30;
+      --muted: #7e6470;
+      --paper: #fffaf1;
+      --cream: #f8e8d3;
+      --rose: #df6f84;
+      --rose-deep: #a83f5e;
+      --berry: #7d2848;
+      --gold: #c69443;
+      --mint: #9bbba7;
+      --shadow: 0 24px 80px rgba(71, 29, 50, .18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 8%, rgba(255, 210, 213, .62), transparent 28rem),
+        radial-gradient(circle at 94% 25%, rgba(246, 202, 162, .56), transparent 24rem),
+        linear-gradient(155deg, #f8d9dd 0%, #f8e6d3 47%, #efd1d9 100%);
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      line-height: 1.95;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+      z-index: 20;
+    }
+
+    button { font: inherit; }
+
+    .envelope-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 50% 26%, rgba(255,255,255,.18), transparent 18rem),
+        linear-gradient(145deg, #4a263b, #271520 72%);
+      transition: opacity .8s ease, visibility .8s ease;
+    }
+
+    .envelope-screen.is-open {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .envelope-wrap {
+      width: min(360px, 92vw);
+      text-align: center;
+      animation: arrive 1s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .private-label {
+      margin-bottom: 24px;
+      color: #f4cf91;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 13px;
+      letter-spacing: .24em;
+    }
+
+    .envelope {
+      position: relative;
+      height: 230px;
+      border-radius: 8px;
+      background: #f7dfc8;
+      box-shadow: 0 30px 70px rgba(0,0,0,.36);
+      overflow: hidden;
+      transform: rotate(-1.2deg);
+    }
+
+    .envelope::before,
+    .envelope::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      z-index: 2;
+    }
+
+    .envelope::before {
+      left: 0;
+      border-width: 115px 0 0 330px;
+      border-color: transparent transparent transparent #f0cfae;
+    }
+
+    .envelope::after {
+      right: 0;
+      border-width: 115px 330px 0 0;
+      border-color: transparent #f9e8d6 transparent transparent;
+    }
+
+    .flap {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 0;
+      border-left: 180px solid transparent;
+      border-right: 180px solid transparent;
+      border-top: 142px solid #ffeeda;
+      filter: drop-shadow(0 2px 0 rgba(101,52,70,.08));
+      transform-origin: top;
+      z-index: 3;
+    }
+
+    .letter-peek {
+      position: absolute;
+      left: 9%;
+      top: 16px;
+      width: 82%;
+      height: 150px;
+      padding-top: 26px;
+      background: var(--paper);
+      color: var(--berry);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 18px;
+      letter-spacing: .08em;
+      border-radius: 3px;
+      box-shadow: 0 -6px 16px rgba(82,35,52,.08);
+    }
+
+    .seal {
+      position: absolute;
+      left: 50%;
+      top: 103px;
+      z-index: 5;
+      display: grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      transform: translateX(-50%);
+      border: 0;
+      border-radius: 50%;
+      color: #ffe9dc;
+      background:
+        radial-gradient(circle at 36% 28%, #e47c91 0 8%, transparent 9%),
+        radial-gradient(circle at 45% 35%, #c85070 0, #a92d55 58%, #7e1f41 100%);
+      box-shadow: 0 5px 13px rgba(90, 28, 52, .35), inset 0 0 0 4px rgba(255,255,255,.08);
+      font-family: Georgia, serif;
+      font-size: 28px;
+      cursor: pointer;
+      transition: transform .25s ease;
+    }
+
+    .seal:hover { transform: translateX(-50%) scale(1.08) rotate(-4deg); }
+
+    .open-hint {
+      margin: 25px 0 0;
+      color: rgba(255, 239, 223, .78);
+      font-size: 13px;
+      letter-spacing: .14em;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .page {
+      position: relative;
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+    }
+
+    .paper {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(255,250,241,.94), rgba(255,250,241,.94)),
+        repeating-linear-gradient(0deg, transparent 0 29px, rgba(142,92,106,.07) 30px);
+      border: 1px solid rgba(126, 64, 83, .12);
+      border-radius: 30px 30px 18px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .paper::before,
+    .paper::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      filter: blur(3px);
+      opacity: .32;
+      pointer-events: none;
+    }
+
+    .paper::before { top: -85px; right: -68px; background: #f5bdc8; }
+    .paper::after { top: 550px; left: -110px; background: #f3c995; }
+
+    .hero {
+      position: relative;
+      min-height: 690px;
+      padding: 42px 30px 24px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 12% 13%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 18%, rgba(255,255,255,.65) 0 2px, transparent 3px),
+        linear-gradient(180deg, #f8c6cf 0%, #fae2ce 72%, rgba(255,250,241,0) 100%);
+      background-size: 67px 67px, 89px 89px, auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      margin-bottom: 22px;
+      padding: 7px 15px;
+      border: 1px solid rgba(113,46,73,.28);
+      border-radius: 999px;
+      color: var(--berry);
+      background: rgba(255, 250, 241, .64);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      backdrop-filter: blur(8px);
+    }
+
+    .eyebrow .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rose);
+      box-shadow: 0 0 0 4px rgba(223,111,132,.14);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: clamp(48px, 11vw, 78px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -.06em;
+      color: var(--berry);
+      text-shadow: 0 3px 0 rgba(255,255,255,.45);
+    }
+
+    .hero-subtitle {
+      margin: 18px auto 4px;
+      color: #704456;
+      font-size: 15px;
+      letter-spacing: .08em;
+    }
+
+    .hero-subtitle strong { color: var(--rose-deep); }
+
+    .cake-stage {
+      position: relative;
+      width: min(380px, 100%);
+      height: 330px;
+      margin: 10px auto 0;
+    }
+
+    .cake-stage svg {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 18px 20px rgba(105,47,70,.16));
+    }
+
+    .spark {
+      position: absolute;
+      z-index: 1;
+      color: #fff4d2;
+      font-size: 26px;
+      animation: twinkle 1.8s ease-in-out infinite alternate;
+    }
+
+    .spark.s1 { left: 2%; top: 35%; }
+    .spark.s2 { right: 0; top: 23%; animation-delay: .5s; }
+    .spark.s3 { right: 8%; bottom: 18%; animation-delay: 1s; font-size: 18px; }
+
+    .scroll-note {
+      display: inline-block;
+      transform: rotate(-3deg);
+      margin-top: -7px;
+      padding: 6px 12px;
+      color: var(--berry);
+      background: #fff7bb;
+      box-shadow: 2px 4px 0 rgba(117,64,75,.12);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 14px;
+    }
+
+    .letter {
+      position: relative;
+      z-index: 2;
+      padding: 20px clamp(25px, 7vw, 68px) 64px;
+    }
+
+    .salutation {
+      margin: 18px 0 30px;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--berry);
+    }
+
+    .lead {
+      position: relative;
+      margin: 0 0 34px;
+      padding: 28px 24px 24px;
+      border: 1px solid rgba(168,63,94,.16);
+      border-radius: 22px;
+      background: rgba(255,255,255,.55);
+      font-size: 17px;
+    }
+
+    .lead::before {
+      content: "♥";
+      position: absolute;
+      top: -20px;
+      left: 22px;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: #fff5ef;
+      background: var(--rose);
+      box-shadow: 0 6px 14px rgba(168,63,94,.22);
+    }
+
+    .section {
+      position: relative;
+      margin: 48px 0;
+    }
+
+    .section-tag {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 0 0 18px;
+      color: var(--rose-deep);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .section-tag::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, rgba(168,63,94,.42), transparent);
+    }
+
+    .number {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 14px;
+      letter-spacing: .05em;
+    }
+
+    p { margin: 0 0 18px; font-size: 16px; }
+
+    .highlight {
+      padding: 0 .16em;
+      color: var(--berry);
+      font-weight: 800;
+      background: linear-gradient(transparent 58%, rgba(245,190,93,.36) 58%);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 34px 0 48px;
+    }
+
+    .stat {
+      padding: 18px 8px 15px;
+      text-align: center;
+      border: 1px solid rgba(152,69,91,.15);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(255,255,255,.7), rgba(249,225,217,.55));
+    }
+
+    .stat b {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--rose-deep);
+      font-family: Georgia, serif;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .stat span { color: var(--muted); font-size: 11px; letter-spacing: .08em; }
+
+    .memory-card {
+      position: relative;
+      margin: 32px -8px;
+      padding: 30px 26px;
+      overflow: hidden;
+      border-radius: 22px;
+      color: #fff7ef;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(255,255,255,.13), transparent 9rem),
+        linear-gradient(145deg, #7d2848, #4b2439);
+      box-shadow: 0 16px 35px rgba(83,37,58,.18);
+      transform: rotate(.5deg);
+    }
+
+    .memory-card::after {
+      content: "666";
+      position: absolute;
+      right: -10px;
+      bottom: -44px;
+      color: rgba(255,255,255,.06);
+      font-family: Georgia, serif;
+      font-size: 130px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .memory-card .tiny { color: #f4c789; font-size: 12px; letter-spacing: .2em; }
+    .memory-card h2 { margin: 6px 0 15px; font-family: Georgia, serif; font-size: 50px; line-height: 1; }
+    .memory-card p { position: relative; z-index: 1; margin-bottom: 0; }
+
+    .promise {
+      margin: 36px 0;
+      padding: 26px 24px 25px;
+      border-left: 5px solid var(--rose);
+      border-radius: 0 18px 18px 0;
+      background: linear-gradient(90deg, rgba(239,170,181,.2), rgba(255,255,255,.42));
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .coupon {
+      position: relative;
+      margin: 52px 0 40px;
+      padding: 28px 26px;
+      border: 2px dashed rgba(126,40,72,.35);
+      border-radius: 22px;
+      background: #f8e4d8;
+      box-shadow: inset 0 0 0 7px rgba(255,255,255,.35);
+    }
+
+    .coupon::before,
+    .coupon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 22px;
+      height: 42px;
+      transform: translateY(-50%);
+      background: var(--paper);
+    }
+
+    .coupon::before { left: -3px; border-radius: 0 22px 22px 0; }
+    .coupon::after { right: -3px; border-radius: 22px 0 0 22px; }
+
+    .coupon-label { color: var(--rose-deep); font-size: 11px; font-weight: 800; letter-spacing: .22em; }
+    .coupon h3 { margin: 6px 0 10px; font-family: "Kaiti SC", "STKaiti", cursive; font-size: 27px; }
+    .coupon p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .signature {
+      margin: 50px 0 8px;
+      text-align: right;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 19px;
+    }
+
+    .signature strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--berry);
+      font-size: 29px;
+    }
+
+    .ps {
+      margin: 32px auto 0;
+      width: fit-content;
+      padding: 7px 15px;
+      transform: rotate(-2deg);
+      color: #6c4d38;
+      background: #fff2a8;
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 16px;
+      box-shadow: 3px 5px 0 rgba(108,77,56,.1);
+    }
+
+    .hug-zone {
+      padding: 40px 24px 52px;
+      text-align: center;
+      color: #fbeee7;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(235,134,154,.18), transparent 10rem),
+        #3b1f30;
+    }
+
+    .hug-zone p { margin: 0 0 16px; color: rgba(255,244,238,.72); font-size: 13px; }
+
+    .hug-button {
+      position: relative;
+      z-index: 2;
+      padding: 13px 24px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 999px;
+      color: #5a243d;
+      background: #f5c578;
+      box-shadow: 0 9px 20px rgba(0,0,0,.2);
+      font-family: "Kaiti SC", "STKaiti", cursive;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .hug-button:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 13px 28px rgba(0,0,0,.24); }
+
+    .footer-mark {
+      margin-top: 28px;
+      color: rgba(255,245,238,.32);
+      font-size: 10px;
+      letter-spacing: .24em;
+    }
+
+    .floating-heart {
+      position: fixed;
+      z-index: 90;
+      pointer-events: none;
+      font-size: 23px;
+      animation: fly 1.7s ease-out forwards;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    body.capture .envelope-screen { display: none; }
+    body.capture .page { padding-top: 0; padding-bottom: 0; }
+    body.capture .paper { border-radius: 0; box-shadow: none; }
+    body.capture .reveal { opacity: 1; transform: none; }
+    body.capture .hug-button { pointer-events: none; }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(26px) rotate(-2deg) scale(.96); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes pulse { 50% { opacity: .48; transform: translateY(2px); } }
+    @keyframes twinkle { to { transform: scale(1.25) rotate(8deg); opacity: .45; } }
+    @keyframes flame { 50% { transform: scale(.9,1.08) translateY(-2px); opacity: .8; } }
+    @keyframes fly {
+      0% { opacity: 0; transform: translate(-50%, 0) scale(.4) rotate(0); }
+      15% { opacity: 1; }
+      100% { opacity: 0; transform: translate(var(--drift), -190px) scale(1.2) rotate(var(--spin)); }
+    }
+
+    .flame { transform-origin: center bottom; animation: flame .8s ease-in-out infinite alternate; }
+
+    @media (max-width: 540px) {
+      .page { padding: 0; }
+      .paper { border: 0; border-radius: 0; }
+      .hero { min-height: 650px; padding-inline: 20px; }
+      .letter { padding-inline: 25px; }
+      .stats { gap: 7px; }
+      .stat b { font-size: 22px; }
+      .memory-card { margin-inline: -6px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope-screen" id="envelopeScreen" aria-label="生日信封">
+    <div class="envelope-wrap">
+      <div class="private-label">私人来信 · 仅宝宝可见</div>
+      <div class="envelope">
+        <div class="letter-peek">To：22岁的宝宝</div>
+        <div class="flap"></div>
+        <button class="seal" id="openLetter" aria-label="拆开生日信">♥</button>
+      </div>
+      <p class="open-hint">轻轻点一下爱心，拆开这封信</p>
+    </div>
+  </div>
+
+  <main class="page">
+    <article class="paper">
+      <header class="hero">
+        <div class="eyebrow"><span class="dot"></span>七月初三 · 生日限定来信</div>
+        <h1>写给22岁的你</h1>
+        <p class="hero-subtitle">生日快乐，我的小宝宝 · 我们的第 <strong>666</strong> 天</p>
+
+        <div class="cake-stage" aria-label="草莓生日蛋糕插画">
+          <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span>
+          <svg viewBox="0 0 430 350" role="img">
+            <ellipse cx="215" cy="305" rx="155" ry="25" fill="#9d536d" opacity=".16"/>
+            <path d="M90 278 C110 258 320 258 340 278 L330 300 C295 317 135 317 100 300Z" fill="#fff5e8" stroke="#a9506c" stroke-width="4"/>
+            <rect x="112" y="169" width="206" height="112" rx="25" fill="#f29cac" stroke="#8e3456" stroke-width="4"/>
+            <path d="M113 206c17 17 30-8 48 5s31-13 49 2 35-15 54 0 34-4 54-7v-27c0-19-15-34-34-34H146c-19 0-34 15-34 34z" fill="#fff5df"/>
+            <ellipse cx="215" cy="169" rx="103" ry="37" fill="#fff9e9" stroke="#8e3456" stroke-width="4"/>
+            <path d="M132 172c14-16 29 12 44-4 17-18 31 14 47-2 17-17 33 14 49-2 14-14 27 8 40-1" fill="none" stroke="#f1a0af" stroke-width="8" stroke-linecap="round"/>
+            <g fill="#dc526d" stroke="#8e3456" stroke-width="2">
+              <path d="M156 155c-15-12-30 7-20 22 7 11 23 5 27-4 7-14 0-26-7-18z"/>
+              <path d="M272 155c-15-12-30 7-20 22 7 11 23 5 27-4 7-14 0-26-7-18z"/>
+              <path d="M216 143c-15-12-30 7-20 22 7 11 23 5 27-4 7-14 0-26-7-18z"/>
+            </g>
+            <g fill="#6d9a70">
+              <path d="M145 153l8-13 4 14z"/><path d="M262 153l8-13 4 14z"/><path d="M205 141l8-13 4 14z"/>
+            </g>
+            <g>
+              <rect x="169" y="70" width="31" height="72" rx="8" fill="#f6cf67" stroke="#8e3456" stroke-width="4"/>
+              <path d="M174 90h21M174 113h21" stroke="#fff5e8" stroke-width="6"/>
+              <path d="M184 67c-13-15 5-29 1-42 15 12 18 27 5 42z" fill="#ff8a47" class="flame"/>
+              <rect x="230" y="70" width="31" height="72" rx="8" fill="#9bbba7" stroke="#8e3456" stroke-width="4"/>
+              <path d="M235 90h21M235 113h21" stroke="#fff5e8" stroke-width="6"/>
+              <path d="M245 67c-13-15 5-29 1-42 15 12 18 27 5 42z" fill="#ff8a47" class="flame" style="animation-delay:.25s"/>
+              <text x="184" y="126" text-anchor="middle" font-family="Georgia" font-weight="bold" font-size="38" fill="#8e3456">2</text>
+              <text x="245" y="126" text-anchor="middle" font-family="Georgia" font-weight="bold" font-size="38" fill="#8e3456">2</text>
+            </g>
+            <path d="M151 233c29 25 101 31 136-2" fill="none" stroke="#fff0e7" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+          </svg>
+        </div>
+        <div class="scroll-note">先许个愿，再慢慢往下看 ↓</div>
+      </header>
+
+      <div class="letter">
+        <div class="salutation reveal">亲爱的宝宝：</div>
+
+        <div class="lead reveal">
+          宝贝，22岁啦，生日快乐嘻嘻！这是我第一次知道，原来宝宝过的是农历生日。<span class="highlight">七月初三，我记住啦。</span>去年是我不够细心，没有多多留意，以后肯定不会忘记啦！
+        </div>
+
+        <div class="stats reveal" aria-label="生日纪念数字">
+          <div class="stat"><b>22</b><span>岁的你</span></div>
+          <div class="stat"><b>666</b><span>天的我们</span></div>
+          <div class="stat"><b>∞</b><span>未完待续</span></div>
+        </div>
+
+        <section class="section reveal">
+          <h2 class="section-tag"><span class="number">01</span>今年，隔空陪你过生日</h2>
+          <p>可惜今年生日刚好在暑假，我们不能线下见面咯。明天宝宝就在家里好好玩，和姐姐们、爸爸妈妈一起开开心心地过生日。</p>
+          <p>虽然我不能在你身边，但还是要隔空祝我的宝宝：<span class="highlight">22岁生日快乐，顺风顺水，顺财神！</span></p>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section-tag"><span class="number">02</span>写给正在长大的你</h2>
+          <p>22岁应该会是宝宝人生中变化很大的一年。</p>
+          <p>我们马上就要大四了，保研、工作，很多选择也会慢慢来到我们面前。可能我们现在还没有完全找到未来的方向，但没关系，<span class="highlight">我们一起继续探索、继续尝试</span>，一点一点找到自己真正想走的路。</p>
+          <p>我相信新的一岁，宝宝会越来越勇敢，我们两个人也会一起进入人生的下一个阶段。</p>
+        </section>
+
+        <div class="memory-card reveal">
+          <div class="tiny">今天还有一件特别巧的事</div>
+          <h2>DAY 666</h2>
+          <p>明天还是我们在一起的第666天。<br><strong>666，兄弟！哈哈哈哈。</strong></p>
+        </div>
+
+        <section class="section reveal">
+          <h2 class="section-tag"><span class="number">03</span>你永远是我的小宝宝</h2>
+          <p>这是我们在一起以后，宝宝过的第二个生日。上一次是21岁，这一次已经22岁啦。</p>
+          <p>虽然你现在已经是一个大女孩子了，但在我心里，你依然是我的小宝宝，<span class="highlight">小小小小小宝宝。</span></p>
+          <div class="promise">新的一岁，我也要继续好好爱你。♥</div>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section-tag"><span class="number">04</span>距离不妨碍我们相爱</h2>
+          <p>今年还是没办法陪你当面过生日，确实有一点点遗憾哟。但我还是想参与进来，也想让宝宝知道：</p>
+          <p><span class="highlight">虽然你在你的家里，我在我的家里，但这并不阻碍我们隔空相爱、隔空亲亲、隔空抱抱。</span></p>
+        </section>
+
+        <div class="coupon reveal">
+          <div class="coupon-label">返校后凭爱兑换 · 永久有效</div>
+          <h3>迟到的小蛋糕 × 1　抱抱 × 无限次</h3>
+          <p>使用方式：本人出现即可，无需预约，不可转赠。</p>
+        </div>
+
+        <section class="section reveal">
+          <h2 class="section-tag"><span class="number">05</span>最后，再许一个愿望</h2>
+          <p>生日快乐呀，我的宝宝。</p>
+          <p>希望新的一岁，你依然可以自在地做自己。希望你健康、开心、顺顺利利，也希望接下来许多个重要的日子，<span class="highlight">我都能陪在你的身边嘻嘻。</span></p>
+        </section>
+
+        <div class="signature reveal">
+          Happy Birthday！
+          <strong>—— 爱你的我</strong>
+        </div>
+
+        <div class="ps reveal">P.S. 记得刷牙～</div>
+      </div>
+
+      <footer class="hug-zone">
+        <p>信读到这里，会自动获得一个隔空抱抱</p>
+        <button class="hug-button" id="hugButton">点一下，收下抱抱 ♥</button>
+        <div class="footer-mark">MADE WITH LOVE · FOR MY BABY · 2026</div>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    const isCapture = new URLSearchParams(location.search).has('capture');
+    if (isCapture) document.body.classList.add('capture');
+
+    const screen = document.getElementById('envelopeScreen');
+    document.getElementById('openLetter').addEventListener('click', () => {
+      screen.classList.add('is-open');
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 400);
+    });
+
+    const reveals = [...document.querySelectorAll('.reveal')];
+    if ('IntersectionObserver' in window && !isCapture) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .1 });
+      reveals.forEach(el => observer.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('visible'));
+    }
+
+    const hugButton = document.getElementById('hugButton');
+    hugButton.addEventListener('click', event => {
+      hugButton.textContent = '抱到啦！今天也要开心 ♥';
+      const symbols = ['♥', '♡', '✦', '🍓', '🎂'];
+      for (let i = 0; i < 18; i++) {
+        const heart = document.createElement('span');
+        heart.className = 'floating-heart';
+        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.left = `${event.clientX + (Math.random() - .5) * 90}px`;
+        heart.style.top = `${event.clientY + (Math.random() - .5) * 24}px`;
+        heart.style.color = ['#f6c36c','#ef8ca1','#fff0dc','#c77a91'][i % 4];
+        heart.style.setProperty('--drift', `${(Math.random() - .5) * 170}px`);
+        heart.style.setProperty('--spin', `${(Math.random() - .5) * 100}deg`);
+        heart.style.animationDelay = `${Math.random() * .28}s`;
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2200);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1236,11 +1236,11 @@
     .scribble-line {
       fill: none;
       stroke: #ec8faa;
-      stroke-width: 12;
+      stroke-width: 20;
       stroke-linecap: round;
       stroke-dasharray: 310;
       stroke-dashoffset: 310;
-      opacity: .92;
+      opacity: .88;
     }
 
     .heart-pen {
@@ -1250,11 +1250,11 @@
     }
 
     .love-popover.play .heart-svg { animation: heartArrive .2s 2.55s both; }
-    .love-popover.play .heart-line.left { animation: drawHeart 1.65s 2.6s ease-in-out forwards; }
-    .love-popover.play .heart-line.right { animation: drawHeart 1.65s 2.72s ease-in-out forwards; }
-    .love-popover.play .scribble-line { animation: scribbleLine .32s var(--delay) ease-out forwards; }
-    .love-popover.play .scribble-wash { animation: washIn .5s 6.05s ease forwards; }
-    .love-popover.play .heart-pen { animation: penScribble 1.95s 4.15s linear both; }
+    .love-popover.play .heart-line.left { animation: drawHeart 1.25s 2.55s ease-in-out forwards; }
+    .love-popover.play .heart-line.right { animation: drawHeart 1.25s 2.62s ease-in-out forwards; }
+    .love-popover.play .scribble-line { animation: scribbleLine .25s var(--delay) ease-out forwards; }
+    .love-popover.play .scribble-wash { animation: washIn .35s 5.10s ease forwards; }
+    .love-popover.play .heart-pen { animation: penScribble 1.45s 3.78s linear both; }
 
     .impact-ring {
       position: absolute;
@@ -1345,7 +1345,7 @@
     @keyframes drawHeart { to { stroke-dashoffset: 0; } }
 
     @keyframes scribbleLine { to { stroke-dashoffset: 0; } }
-    @keyframes washIn { to { opacity: .14; } }
+    @keyframes washIn { to { opacity: .28; } }
 
     @keyframes penScribble {
       0% { opacity: 0; transform: translate(8px,224px) rotate(-47deg) scale(.82); }
@@ -1601,25 +1601,25 @@
           </defs>
           <path class="scribble-wash" d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226C251 162 292 112 262 61C237 19 177 18 150 62Z"/>
           <g class="scribble-fill" clip-path="url(#heartShapeClip)">
-            <line class="scribble-line" style="--delay:4.20s" x1="-100" y1="245" x2="110" y2="35"/>
-            <line class="scribble-line" style="--delay:4.29s" x1="-82" y1="245" x2="128" y2="35"/>
-            <line class="scribble-line" style="--delay:4.38s" x1="-64" y1="245" x2="146" y2="35"/>
-            <line class="scribble-line" style="--delay:4.47s" x1="-46" y1="245" x2="164" y2="35"/>
-            <line class="scribble-line" style="--delay:4.56s" x1="-28" y1="245" x2="182" y2="35"/>
-            <line class="scribble-line" style="--delay:4.65s" x1="-10" y1="245" x2="200" y2="35"/>
-            <line class="scribble-line" style="--delay:4.74s" x1="8" y1="245" x2="218" y2="35"/>
-            <line class="scribble-line" style="--delay:4.83s" x1="26" y1="245" x2="236" y2="35"/>
-            <line class="scribble-line" style="--delay:4.92s" x1="44" y1="245" x2="254" y2="35"/>
-            <line class="scribble-line" style="--delay:5.01s" x1="62" y1="245" x2="272" y2="35"/>
-            <line class="scribble-line" style="--delay:5.10s" x1="80" y1="245" x2="290" y2="35"/>
-            <line class="scribble-line" style="--delay:5.19s" x1="98" y1="245" x2="308" y2="35"/>
-            <line class="scribble-line" style="--delay:5.28s" x1="116" y1="245" x2="326" y2="35"/>
-            <line class="scribble-line" style="--delay:5.37s" x1="134" y1="245" x2="344" y2="35"/>
-            <line class="scribble-line" style="--delay:5.46s" x1="152" y1="245" x2="362" y2="35"/>
-            <line class="scribble-line" style="--delay:5.55s" x1="170" y1="245" x2="380" y2="35"/>
-            <line class="scribble-line" style="--delay:5.64s" x1="188" y1="245" x2="398" y2="35"/>
-            <line class="scribble-line" style="--delay:5.73s" x1="206" y1="245" x2="416" y2="35"/>
-            <line class="scribble-line" style="--delay:5.82s" x1="224" y1="245" x2="434" y2="35"/>
+            <line class="scribble-line" style="--delay:3.86s" x1="-100" y1="245" x2="110" y2="35"/>
+            <line class="scribble-line" style="--delay:3.92s" x1="-82" y1="245" x2="128" y2="35"/>
+            <line class="scribble-line" style="--delay:3.98s" x1="-64" y1="245" x2="146" y2="35"/>
+            <line class="scribble-line" style="--delay:4.04s" x1="-46" y1="245" x2="164" y2="35"/>
+            <line class="scribble-line" style="--delay:4.10s" x1="-28" y1="245" x2="182" y2="35"/>
+            <line class="scribble-line" style="--delay:4.16s" x1="-10" y1="245" x2="200" y2="35"/>
+            <line class="scribble-line" style="--delay:4.22s" x1="8" y1="245" x2="218" y2="35"/>
+            <line class="scribble-line" style="--delay:4.28s" x1="26" y1="245" x2="236" y2="35"/>
+            <line class="scribble-line" style="--delay:4.34s" x1="44" y1="245" x2="254" y2="35"/>
+            <line class="scribble-line" style="--delay:4.40s" x1="62" y1="245" x2="272" y2="35"/>
+            <line class="scribble-line" style="--delay:4.46s" x1="80" y1="245" x2="290" y2="35"/>
+            <line class="scribble-line" style="--delay:4.52s" x1="98" y1="245" x2="308" y2="35"/>
+            <line class="scribble-line" style="--delay:4.58s" x1="116" y1="245" x2="326" y2="35"/>
+            <line class="scribble-line" style="--delay:4.64s" x1="134" y1="245" x2="344" y2="35"/>
+            <line class="scribble-line" style="--delay:4.70s" x1="152" y1="245" x2="362" y2="35"/>
+            <line class="scribble-line" style="--delay:4.76s" x1="170" y1="245" x2="380" y2="35"/>
+            <line class="scribble-line" style="--delay:4.82s" x1="188" y1="245" x2="398" y2="35"/>
+            <line class="scribble-line" style="--delay:4.88s" x1="206" y1="245" x2="416" y2="35"/>
+            <line class="scribble-line" style="--delay:4.94s" x1="224" y1="245" x2="434" y2="35"/>
           </g>
           <path class="heart-line left" d="M150 62C123 18 63 19 38 61C8 112 49 162 150 226"/>
           <path class="heart-line right" d="M150 62C177 18 237 19 262 61C292 112 251 162 150 226"/>
@@ -1679,11 +1679,11 @@
       loveCaption.textContent = '稍微离得远一点，也会慢慢走向彼此。';
       loveTimers.push(setTimeout(() => { loveCaption.textContent = '碰到啦！'; }, 1750));
       loveTimers.push(setTimeout(() => { loveCaption.textContent = '两个人，慢慢变成一颗心。'; }, 2650));
-      loveTimers.push(setTimeout(() => { loveCaption.textContent = '正在把喜欢，一点一点涂满……'; }, 4300));
+      loveTimers.push(setTimeout(() => { loveCaption.textContent = '正在把喜欢，一点一点涂满……'; }, 3850));
       loveTimers.push(setTimeout(() => {
         loveCaption.textContent = '抱到啦，心也合上啦 ♥';
         hugButton.textContent = '抱到啦！今天也要开心 ♥';
-      }, 6350));
+      }, 5400));
     }
 
     function openLoveStory() {
